@@ -16,6 +16,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public bool isEmpty = true;
     public Transform slotIconGO;
 
+    private void Start()
+    {
+        slotIconGO = transform.GetChild(0);
+    }
     public void createSlot(GameObject item, int ID, string type, string info, Sprite icon)
     {
         this.item = item;

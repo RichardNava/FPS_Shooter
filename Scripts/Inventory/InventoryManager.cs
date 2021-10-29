@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
         {
             inventoryEnabled = !inventoryEnabled;
             inventory.SetActive(inventoryEnabled);
+            CameraController.CCenabled = !inventoryEnabled;
 
             //if (!inventoryEnabled)
             //{
