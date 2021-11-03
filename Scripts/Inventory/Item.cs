@@ -45,6 +45,7 @@ public class Item : MonoBehaviour
             {
                 equipped = !equipped;
                 gameObject.SetActive(equipped);
+                Shot.weaponEquipped = false;
             }
         }
     }
@@ -58,11 +59,15 @@ public class Item : MonoBehaviour
                 case "AK-47":
                     weapon.SetActive(true);
                     weapon.GetComponent<Item>().equipped = true;
+                    Shot.shotLifeTime = 5f;
+                    Shot.weaponEquipped = true;
                     // TODO: Añadir distintos stats del arma correspondiente
                     break;
                 case "UMP-45":
                     weapon.SetActive(true);
                     weapon.GetComponent<Item>().equipped = true;
+                    Shot.shotLifeTime = 5.2f;
+                    Shot.weaponEquipped = true;
                     // TODO: Añadir distintos stats del arma correspondiente
                     break;
                 default:
