@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class Slot : MonoBehaviour, IPointerClickHandler
 {
     // Declaración de variables referente a los objetos
+    [HideInInspector]
     public GameObject item;
     public int ID;
     public string type;
@@ -29,7 +31,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         this.icon = icon;
     }
 
-
     public void UpdateSlot()
     {
         slotIconGO.GetComponent<Image>().sprite = icon;
@@ -46,6 +47,5 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         Debug.Log("Estoy usando este botón");
         UseItem();
     }
-
 
 }

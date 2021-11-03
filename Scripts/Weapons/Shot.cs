@@ -5,12 +5,10 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
     public Transform spawnBullet;
-    public GameObject bullet;
-    public ParticleSystem traceBullet;
 
-    public float shotForce = 1500f;
-    public float shotRace = 0.5f;
-    public static float shotLifeTime = 4.5f; // Esta variable puede cambiar en función del arma que usemos
+    //public GameObject bullet;
+
+    // Esta variable puede cambiar en función del arma que usemos
 
     private float shotRateTime = 0; //Cadencia
     public static bool weaponEquipped = false;
@@ -21,11 +19,11 @@ public class Shot : MonoBehaviour
         {
             if (Time.time > shotRateTime && weaponEquipped)
             {
-                GameObject newBullet;
-                newBullet = Instantiate(bullet, spawnBullet.position, Quaternion.Euler(90,0,-90));
-                newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shotForce);
-                traceBullet.Play();
-                Destroy(newBullet, shotLifeTime);
+                //GameObject newBullet = Instantiate(bullet);
+                //newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shotForce);             
+                //Destroy(newBullet, shotLifeTime);
+                Pool.instance.Get().transform.position = spawnBullet.position;
+
             }
         }
     }
